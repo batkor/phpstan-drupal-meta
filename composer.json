@@ -1,0 +1,9 @@
+{
+    "name": "batkor/phpstan-drupal-meta",
+    "description": "Generate drupal meta data for phpstan. Provides phpstan rules for Drupal project.",
+    "autoload": {
+        "psr-4": {
+            "PhpStanDrupalMeta\\": "src"
+        }
+    }
+}

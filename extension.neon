@@ -1,0 +1,27 @@
+parameters:
+  PhpStanDrupalMeta:
+    dir: '.phpstan.meta'
+
+services:
+  PhpStanDrupalMetaMap:
+    class: PhpStanDrupalMeta\MetaMap
+    arguments:
+      parser: @currentPhpVersionSimpleDirectParser
+      metaDir: '%PhpStanDrupalMeta.dir%'
+
+  - class: PhpStanDrupalMeta\Rules\Services
+    arguments:
+      map: @PhpStanDrupalMetaMap
+    tags:
+      - phpstan.rules.rule
+
+  - class: PhpStanDrupalMeta\Rules\Configurations
+    arguments:
+      map: @PhpStanDrupalMetaMap
+    tags:
+      - phpstan.rules.rule
+
+parametersSchema:
+  PhpStanDrupalMeta: structure([
+    dir: string()
+  ])
