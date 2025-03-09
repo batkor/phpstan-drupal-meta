@@ -24,17 +24,15 @@ final class EntityTypes extends BaseAssets implements ContainerInjectionInterfac
   }
 
   public function vars(): array {
-    $definitions = [];
-
-    foreach ($this->entityTypeManager->getDefinitions() as $type => $definition) {
-      $definitions[$type] = [
+    $definitions = array_map(static function ($definition) {
+      return [
         'class' => $definition->getClass(),
         'storage' => $definition->getStorageClass(),
         'access_control' => $definition->getAccessControlClass(),
         'list_builder' => $definition->getListBuilderClass(),
         'view_builder' => $definition->getViewBuilderClass(),
       ];
-    }
+    }, $this->entityTypeManager->getDefinitions());
 
     return [
       'definitions' => $definitions,
