@@ -2,9 +2,6 @@
 
 namespace PhpStanDrupalMeta;
 
-use PhpParser\Node\Arg;
-use PhpParser\Node\Stmt\Namespace_;
-use PhpParser\NodeAbstract;
 use PHPStan\Parser\SimpleParser;
 
 class MetaMap {

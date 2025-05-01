@@ -5,7 +5,7 @@ namespace PhpStanDrupalMeta\Rules;
 use PhpParser\Node;
 use PHPStan\Analyser\Scope;
 
-class Configurations extends StaticDrupalRules {
+final class Configurations extends StaticDrupalRules {
 
   public function methodName(): string {
     return 'config';

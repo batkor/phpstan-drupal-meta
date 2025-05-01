@@ -21,6 +21,18 @@ services:
     tags:
       - phpstan.rules.rule
 
+  - class: PhpStanDrupalMeta\Rules\EntityTypes\Storage\CallStorage
+    arguments:
+      map: @PhpStanDrupalMetaMap
+    tags:
+      - phpstan.rules.rule
+
+  - class: PhpStanDrupalMeta\Rules\EntityTypes\Storage\CheckStorageMethods
+    arguments:
+      map: @PhpStanDrupalMetaMap
+    tags:
+      - phpstan.broker.dynamicMethodReturnTypeExtension
+
 parametersSchema:
   PhpStanDrupalMeta: structure([
     dir: string()
